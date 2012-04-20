@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Example clock</title>
+	<script language="Javascript"  type="text/javascript" src="clockCountdown.js"></script>
+<style>
+/* agregamos una fuente de dafont, que simula unos leds */
+@font-face {
+	font-family: ledbdrev;
+	src: url(./Fleftex_M.ttf) format("truetype");
+}
+/* aqui va el estilo que tendra el clock */
+
+#clock, #clock-2, #clock-3{
+	padding:0;
+	height:70px;
+	font-family: ledbdrev;
+	/*position: absolute;*/
+	top: 0px;
+	right: 0px;
+	background: #bcbd72;
+	color: #2a2807;
+	padding:4px;
+	border:2px solid #2a2807;
+	font-size:15px;
+	width: 320px;
+	text-shadow:#6d691e 5px 5px 5px,#6d691e -5px -5px 5px;
+}
+
+.clockCountdownNumber{
+	float:left;
+	background:URL('numeros.png');
+	display:block;
+	width:34px;
+	height:50px;
+}
+
+.clockCountdownSeparator_days,
+.clockCountdownSeparator_hours,
+.clockCountdownSeparator_minutes,
+.clockCountdownSeparator_seconds
+{
+	float:left;
+	display:block;
+	width:10px;
+	height:50px;
+}
+.clockCountdownFootItem{
+	width:80px;
+	float:left;
+	text-align:center;
+}
+</style>
+<script language="Javascript"  type="text/javascript">
+	window.onload = function (){
+		r = new clockCountdown('clock',{'days':5,'hours':20,'minutes':00,'seconds':3});
+		r = new clockCountdown('clock-2',{'days':5,'hours':10,'minutes':05,'seconds':50});
+		r = new clockCountdown('clock-3',{'days':5,'hours':10,'minutes':05,'seconds':50});
+	}
+</script>
+	<link rel="stylesheet" type="text/css" href="/home/fitorec/.config/css/style.css" />
+</head>
+<body>
+<div id='content'>
+	<h1>Ejemplos RelojRegresivo.</h1>
+
+<h2>Ejemplo 1</h2>
+
+<h3>5 dias, 20  Horas, 00 minutos y 3segundos</h3>
+
+<div id='clock'></div>
+
+<h4>Agregando libreria:</h4>
+
+<pre><code>&lt;script language="Javascript"  type="text/javascript" src="clockCountdown.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h4>Código HTML:</h4>
+
+<pre><code>&lt;div id='clock'&gt;&lt;/div&gt;
+</code></pre>
+
+<h4>Llamada en javascript:</h4>
+
+<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
+    window.onload = function (){
+        r = new clockCountdown('clock',{'days':5,'hours':20,'minutes':00,'seconds':3});
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h2>Ejemplo 2:</h2>
+
+<div id='clock-2' class='other_clock'></div>
+
+<h3>HTML</h3>
+
+<pre><code>&lt;div id='clock-2' class='other_clock'&gt;&lt;/div&gt;
+</code></pre>
+
+<h4>Llamada en javascript:</h4>
+
+<pre><code>r2 = new clockCountdown('clock-2',{'days':5,'hours':10,'minutes':05,'seconds':50});
+</code></pre>
+
+<h2>Ejemplo 3:</h2>
+
+<p>Como puedes ver puedes agregar multiples relojes cada uno con una configuracion distinta:</p>
+
+<div id='clock-3' class='other_clock'></div>
+
+<h3>HTML</h3>
+
+<pre><code>&lt;div id='clock'&gt;&lt;/div&gt;
+&lt;div id='clock-2' class='other_clock'&gt;&lt;/div&gt;
+&lt;div id='clock-3' class='other_clock'&gt;&lt;/div&gt;
+</code></pre>
+
+<h4>Llamada en javascript:</h4>
+
+<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
+    window.onload = function (){
+        r = new clockCountdown('clock',{'days':5,'hours':20,'minutes':00,'seconds':3});
+        r2 = new clockCountdown('clock-2',{'days':5,'hours':10,'minutes':05,'seconds':50});
+        r3 = new clockCountdown('clock-3',{'days':5,'hours':10,'minutes':05,'seconds':50});
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h2>CSS y estilo:</h2>
+
+<p>Puedes agregarle tus estilos aqui un pequeño ejemplo:</p>
+
+<pre><code>#clock, #clock-2, #clock-3{
+    padding:0;
+    height:70px;
+    /*position: absolute;*/
+    top: 0px;
+    right: 0px;
+    background: #bcbd72;
+    color: #2a2807;
+    padding:4px;
+    border:2px solid #2a2807;
+    font-size:15px;
+    width: 320px;
+    text-shadow:#6d691e 5px 5px 5px,#6d691e -5px -5px 5px;
+}
+
+.clockCountdownNumber{
+    float:left;
+    background:URL('numeros.png');
+    display:block;
+    width:34px;
+    height:50px;
+}
+
+.clockCountdownSeparator_days,
+.clockCountdownSeparator_hours,
+.clockCountdownSeparator_minutes,
+.clockCountdownSeparator_seconds
+{
+    float:left;
+    display:block;
+    width:10px;
+    height:50px;
+}
+.clockCountdownFootItem{
+    width:80px;
+    float:left;
+    text-align:center;
+}
+</code></pre>
+
+<h1>Caracteristicas Principales.</h1>
+
+<ul>
+<li>Javascript puro apegado al ECMAScript</li>
+<li>No depende de ninguna libreria.</li>
+<li>Soporte de ejecución multiple basada en una pila de objetos.</li>
+<li>Ligero.</li>
+<li>Cross Browser.</li>
+</ul>
+
+<h2>Extras</h2>
+
+<p>Tal vez te preguntaras como puedes obtener la diferencia en dias, horas, minutos y segundos para generar el formato que te pide el <code>clockCountdown.js</code>, esta diferencia se puede objetener con <code>javascript</code> pero a mi consideración lo mejor es generarla del lado del servidor, razón principal es que puede haber algunas diferencias entre la zona horaria de la maquina del usuario o poder tener mal configurado su equipo esto nos generaria una diferencia no del todo cierta, a diferencia de lo que ocurre si lo generamos desde el lado del servidor una forma de generar esto podemos usar la siguiente funcion en <code>php</code>:</p>
+
+<pre><code>function otherDiffDate($end='2020-06-09 10:30:00', $out_in_array=false){
+        $intervalo = date_diff(date_create(), date_create($end));
+        $out = $intervalo-&gt;format("Years:%Y,Months:%M,Days:%d,Hours:%H,Minutes:%i,Seconds:%s");
+        if(!$out_in_array)
+            return $out;
+        $a_out = array();
+        array_walk(explode(',',$out),
+        function($val,$key) use(&amp;$a_out){
+            $v=explode(':',$val);
+            $a_out[$v[0]] = $v[1];
+        });
+        return $a_out;
+}
+</code></pre>
+
+<h3>ejemplo ejecucion 1</h3>
+
+<pre><code>echo otherDiffDate();
+</code></pre>
+
+<h4>Salida:</h4>
+
+<pre><code>Years:08,Months:01,Days:22,Hours:17,Minutes:5,Seconds:26
+</code></pre>
+
+<h3>ejemplo ejecucion 2</h3>
+
+<pre><code>print_r(otherDiffDate('2020-01-01 20:30:00',true));
+</code></pre>
+
+<h4>Salida:</h4>
+
+<pre><code>Array
+(
+    [Years] =&gt; 07
+    [Months] =&gt; 08
+    [Days] =&gt; 15
+    [Hours] =&gt; 03
+    [Minutes] =&gt; 3
+    [Seconds] =&gt; 48
+)
+</code></pre>
+</div>
+</body>
+</html>
