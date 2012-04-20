@@ -5,10 +5,64 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Clockcountdown.js : clockCountdown.js" />
-
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
     <title>Clockcountdown.js</title>
+    <style>
+/* agregamos una fuente de dafont, que simula unos leds */
+@font-face {
+	font-family: ledbdrev;
+	src: url(./Fleftex_M.ttf) format("truetype");
+}
+/* aqui va el estilo que tendra el clock */
+
+#clock, #clock-2, #clock-3{
+	padding:0;
+	height:70px;
+	font-family: ledbdrev;
+	/*position: absolute;*/
+	top: 0px;
+	right: 0px;
+	background: #bcbd72;
+	color: #2a2807;
+	padding:4px;
+	border:2px solid #2a2807;
+	font-size:15px;
+	width: 320px;
+	text-shadow:#6d691e 5px 5px 5px,#6d691e -5px -5px 5px;
+}
+
+.clockCountdownNumber{
+	float:left;
+	background:URL('numeros.png');
+	display:block;
+	width:34px;
+	height:50px;
+}
+
+.clockCountdownSeparator_days,
+.clockCountdownSeparator_hours,
+.clockCountdownSeparator_minutes,
+.clockCountdownSeparator_seconds
+{
+	float:left;
+	display:block;
+	width:10px;
+	height:50px;
+}
+.clockCountdownFootItem{
+	width:80px;
+	float:left;
+	text-align:center;
+}
+</style>
+<script language="Javascript"  type="text/javascript" src="javascripts/clockCountdown.js"></script>
+<script language="Javascript"  type="text/javascript">
+	window.onload = function (){
+		r = new clockCountdown('clock',{'days':5,'hours':20,'minutes':00,'seconds':3});
+		r = new clockCountdown('clock-2',{'days':5,'hours':10,'minutes':05,'seconds':50});
+		r = new clockCountdown('clock-3',{'days':5,'hours':10,'minutes':05,'seconds':50});
+	}
+</script>
   </head>
 
   <body>
@@ -36,7 +90,7 @@
 <h2>Ejemplo 1</h2>
 
 <h3>5 dias, 20  Horas, 00 minutos y 3segundos</h3>
-
+<div id='clock'></div>
  
 
 <h4>Agregando libreria:</h4>
@@ -59,8 +113,7 @@
 </code></pre>
 
 <h2>Ejemplo 2:</h2>
-
- 
+<div id='clock-2' class='other_clock'></div> 
         
 
 <h3>HTML</h3>
@@ -74,10 +127,9 @@
 </code></pre>
 
 <h2>Ejemplo 3:</h2>
+<div id='clock-3' class='other_clock'></div>
 
 <p>Como puedes ver puedes agregar multiples relojes cada uno con una configuracion distinta:</p>
-
- 
         
 
 <h3>HTML</h3>
@@ -206,8 +258,6 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>
