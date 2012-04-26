@@ -1,0 +1,38 @@
+/* aqui va el estilo que tendra el clock */
+#clock, #clock-2, #clock-3{
+	padding:0;
+	height:70px;
+	top: 0px;
+	right: 0px;
+	background: #bcbd72;
+	color: #2a2807;
+	padding:4px;
+	border:2px solid #2a2807;
+	font-size:15px;
+	width: 320px;
+	text-shadow:#6d691e 5px 5px 5px,#6d691e -5px -5px 5px;
+}
+
+.clockCountdownNumber{
+	float:left;
+	background:URL('../images/numeros.png');
+	display:block;
+	width:34px;
+	height:50px;
+}
+
+.clockCountdownSeparator_days,
+.clockCountdownSeparator_hours,
+.clockCountdownSeparator_minutes,
+.clockCountdownSeparator_seconds
+{
+	float:left;
+	display:block;
+	width:10px;
+	height:50px;
+}
+.clockCountdownFootItem{
+	width:80px;
+	float:left;
+	text-align:center;
+}
